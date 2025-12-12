@@ -1,0 +1,1 @@
+sudo tshark -Tek|jq 'select(.timestamp)|{ts:.timestamp, ipsrc: .layers.ip.ip_ip_src_host, ipdst:.layers.ip.ip_ip_dst, udpinfo:{src:.layers.upd.udp_udp_srcport,dst:.layers.upd.udp_udp_dstport} , tcpinfo:{src:.layers.tcp.tcp_tcp_srcport, dst:.layers.tcp.tcp_tcp_dstport}}'
